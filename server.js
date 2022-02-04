@@ -46,6 +46,7 @@ app.get("/", async function (req, res) {
 	}
 })
 
+
 app.get("/add-random/", async function (req, res) {
 	try {
 		let random = Math.random()
