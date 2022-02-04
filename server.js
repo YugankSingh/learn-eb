@@ -42,7 +42,7 @@ app.get("/", async function (req, res) {
 		res.end()
 	} catch (error) {
 		console.error(error)
-		res.status(500).send(error)
+		res.status(200).send(error)
 	}
 })
 
@@ -56,7 +56,7 @@ app.get("/add-random/", async function (req, res) {
 		res.redirect("/")
 	} catch (error) {
 		console.error(error)
-		res.status("500").send(error)
+		res.status(200).send(error)
 	}
 })
 
