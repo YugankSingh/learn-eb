@@ -4,6 +4,10 @@ const app = express()
 const fs = require("fs")
 const port = process.env.PORT || 8080
 const mongoose = require("mongoose")
+const fileUpload = require("express-fileupload")
+app.use(fileUpload())
+// const multer = require('multer')
+// const upload = multer({ dest: 'uploads/' })
 
 ;(async function () {
 	try {
@@ -46,13 +50,27 @@ app.get("/", async function (req, res) {
 	}
 })
 
-
 app.get("/add-random/", async function (req, res) {
 	try {
 		let random = Math.random()
 			.toString(36)
 			.replace(/[^a-z]+/g, "")
 		await Rando.create({ name: random })
+		res.redirect("/")
+	} catch (error) {
+		console.error(error)
+		res.status(200).send(error)
+	}
+})
+
+app.post("/add-photo/", async function (req, res) {
+	try {
+		if (!req.files){
+		res.redirect("/")
+			return;}
+		console.log("file is ")
+		console.log(Array.isArray(req.files.photo))
+		console.log(req.files.photo)
 		res.redirect("/")
 	} catch (error) {
 		console.error(error)

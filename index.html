@@ -8,5 +8,12 @@
         <a href="/test">Call the test API</a>
 				<br/>
         <a href="/add-random">Add Random</a>
+				<br/>
+				<h3>Add Photo</h3>
+				<form method="post" action="/add-photo" enctype="multipart/form-data">
+					<input type="file" name="photo" accept="image/*" />
+					<br/>
+					<input type="submit" value="Submit" />
+				</form>	
     </body>
 </html>
